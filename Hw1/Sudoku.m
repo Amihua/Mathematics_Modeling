@@ -104,6 +104,7 @@ options = optimoptions('intlinprog', 'Display', 'off');
 [x, fval, exitflag] = intlinprog(f, intcon, [], [], Aeq, beq, lb, ub, options);
 
 % 检查是否找到最优解
+% 检查是否找到最优解
 if exitflag == 1
     disp('找到最优解:');
     solution = reshape(x, [n, n, n]);
@@ -117,6 +118,8 @@ if exitflag == 1
             end
         end
     end
+    % 转置矩阵
+    solved_sudoku = solved_sudoku';
     disp(solved_sudoku);
 else
     disp('未找到最优解');
